@@ -1,0 +1,24 @@
+{
+  "name": "mml2tex",
+  "version": "0.0.0",
+  "description": "convert mathml to tex",
+  "main": "lib/index.js",
+  "author": "JongChan Choi <jong@chan.moe>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:sef && yarn build:ts",
+    "build:sef": "yarn build:sef:json && yarn build:sef:ts",
+    "build:sef:json": "xslt3 -xsl:src/xsl/mml2tex.xsl -export:src/generated/mml2tex.sef.json -nogo -t",
+    "build:sef:ts": "sucrase-node scripts/build-sef-ts",
+    "build:ts": "tsc"
+  },
+  "dependencies": {
+    "saxon-js": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.13",
+    "sucrase": "^3.15.0",
+    "typescript": "^3.9.5",
+    "xslt3": "^2.0.2"
+  }
+}
