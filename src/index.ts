@@ -15,11 +15,3 @@ function removeStub(resultText: string): string {
     const end = /\s?\?>$/;
     return resultText.replace(start, '').replace(end, '');
 }
-
-console.log(mml2tex(`
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <msqrt>
-            <mn>2</mn>
-        </msqrt>
-    </math>
-`));
